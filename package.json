@@ -1,0 +1,30 @@
+{
+  "name": "@danielsharkov/svelte-router-examples",
+  "version": "1.0.0",
+  "private": false,
+  "scripts": {
+    "example-1": "rollup -c -w --name simple_router -i simple/main.ts",
+    "example-2": "rollup -c -w --name advanced_router -i advanced/main.ts",
+    "start": "sirv public --no-clear --single",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@tsconfig/svelte": "^2.0.1",
+    "rollup": "^2.60.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "svelte": "^3.44.2",
+    "svelte-check": "^2.2.10",
+    "svelte-preprocess": "^4.9.8",
+    "tslib": "^2.3.1",
+    "typescript": "~4.5.2"
+  },
+  "dependencies": {
+    "sirv-cli": "^1.0.14"
+  }
+}

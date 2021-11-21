@@ -1,0 +1,7 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "moduleResolution": "node",
+
+  "include": ["simple/**/*", "advanced/**/*"],
+  "exclude": ["node_modules/*", "public/*"]
+}
