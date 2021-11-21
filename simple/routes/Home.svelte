@@ -4,7 +4,7 @@
 
 <div class='page'>
 	<img
-		src='https://github.com/DanielSharkov/svelte-router/blob/master/logo-animated.svg'
+		src='https://raw.githubusercontent.com/DanielSharkov/svelte-router/master/logo-animated.svg'
 		alt='Svelte Router Logo'
 	/>
 	<h1>

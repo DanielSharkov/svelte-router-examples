@@ -9,7 +9,7 @@
 </script>
 
 <script lang='ts'>
-	import {RouterLink} from '@danielsharkov/svelte-router'
+	import {RouteLink} from '@danielsharkov/svelte-router'
 
 	async function fetchBlogs(): Promise<Array<BlogPreview>> {
 		if (storedBlogsPreview !== null) return storedBlogsPreview
@@ -31,10 +31,10 @@
 			<p class='placeholder'>Loading blog posts...</p>
 		{:then blogs}
 			{#each blogs as blog}
-				<RouterLink to='blog' params={{id: blog.id}} class='blog'>
+				<RouteLink to='blog' params={{id: blog.id}} class='blog'>
 					<h4>{blog.title}</h4>
 					<p>{blog.preview}</p>
-				</RouterLink>
+				</RouteLink>
 			{/each}
 		{:catch err}
 			<p class='error'>Failed to fetch blog posts: {err}</p>

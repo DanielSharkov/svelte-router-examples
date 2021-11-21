@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import {RouterViewport, link} from '@danielsharkov/svelte-router'
+	import {Viewport, link} from '@danielsharkov/svelte-router'
 	import router from './router'
 </script>
 
@@ -25,7 +25,7 @@
 			Forward &gt;
 		</button>
 	</nav>
-	<RouterViewport {router}/>
+	<Viewport {router}/>
 </main>
 
 <style>

@@ -67,7 +67,7 @@
 
 
 <script lang='ts'>
-	import {RouterViewport} from '@danielsharkov/svelte-router'
+	import {Viewport} from '@danielsharkov/svelte-router'
 	import {cubicInOut} from 'svelte/easing'
 	import {link} from '@danielsharkov/svelte-router'
 
@@ -127,7 +127,7 @@
 
 				<div class='logo flex flex-center'>
 					<img
-						src='https://github.com/DanielSharkov/svelte-router/blob/master/logo-animated.svg'
+						src='https://raw.githubusercontent.com/DanielSharkov/svelte-router/master/logo-animated.svg'
 						alt='Svelte Router Logo'
 					/>
 				</div>
@@ -154,13 +154,13 @@
 			</div>
 		</header>
 	{/if}
-	<RouterViewport id='SvelteRouterViewport' {router}/>
+	<Viewport id='SvelteViewport' {router}/>
 </main>
 
 <svelte:window on:scroll={scrollingApp}/>
 
 <style>
-	:global(#SvelteRouterViewport) {
+	:global(#SvelteViewport) {
 		width: 100%;
 	}
 

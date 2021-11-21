@@ -3,7 +3,7 @@
 </script>
 
 <script lang='ts'>
-	import {RouterLink} from '@danielsharkov/svelte-router'
+	import {RouteLink} from '@danielsharkov/svelte-router'
 
 	export let params
 
@@ -25,7 +25,7 @@
 </script>
 
 <div class='page'>
-	<RouterLink to='blogs' id='BlogBack'>&lt; Back to all blog posts</RouterLink>
+	<RouteLink to='blogs' id='BlogBack'>&lt; Back to all blog posts</RouteLink>
 	{#await fetchBlog()}
 		<p class='placeholder'>Loading blog...</p>
 	{:then blog}
