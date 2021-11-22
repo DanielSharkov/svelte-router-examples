@@ -14,7 +14,7 @@
 	async function fetchBlogs(): Promise<Array<BlogPreview>> {
 		if (storedBlogsPreview !== null) return storedBlogsPreview
 
-		const resp = await fetch('/blogs.json')
+		const resp = await fetch('blogs.json')
 		// simulate latency
 		await new Promise((r)=> setTimeout(r, 500))
 		const json = await resp.json()

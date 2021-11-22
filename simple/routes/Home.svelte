@@ -15,12 +15,12 @@
 		<span>Made with</span>
 		<span class='heart'>❤️</span>
 		<span>by</span>
-		<a href='https://github.com/DanielSharkov' target='_blank' class='btn user'>
+		<a href='https://github.com/DanielSharkov' target='_blank' class='btn user flex flex-center'>
 			<img src='https://avatars.githubusercontent.com/u/26609752?v=4' alt='Daniel Sharkov'/>
 			<span>Daniel Sharkov</span>
 		</a>
 		<span>and</span>
-		<a href='https://github.com/romshark' target='_blank' class='btn user'>
+		<a href='https://github.com/romshark' target='_blank' class='btn user flex flex-center'>
 			<img src='https://avatars.githubusercontent.com/u/9574743?v=4' alt='Roman Sharkov'/>
 			<span>Roman Sharkov</span>
 		</a>
@@ -60,10 +60,6 @@
 		font-size: .75em;
 	}
 	.author, .author .user {
-		display: flex;
-		justify-content: center;
-		align-content: center;
-		align-items: center;
 		gap: .5em;
 		color: #B1B1C5;
 	}

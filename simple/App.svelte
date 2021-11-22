@@ -4,7 +4,7 @@
 </script>
 
 <main>
-	<nav>
+	<nav class='flex flex-center-y'>
 		{#each Object.keys($router.routes) as routeName}
 			{#if $router.routes[routeName].props?.nav}
 				<a href={router.nameToPath(routeName)} use:link={router}
@@ -18,7 +18,7 @@
 			This will immediately throw an error, because you can't link
 			to routes which aren't defined in the router config
 		</a> -->
-		<button class='history-back' on:click={()=> router.back()}>
+		<button class='history-back flex-self-right' on:click={()=> router.back()}>
 			&lt; Back
 		</button>
 		<button class='history-forward' on:click={()=> router.forward()}>
@@ -30,11 +30,8 @@
 
 <style>
 	nav {
-		display: flex;
 		padding: 1em;
 		gap: .5em;
-		align-content: center;
-		align-items: center;
 		box-shadow: var(--nav-shadow);
 		background-color: var(--fg-clr);
 	}
@@ -54,11 +51,5 @@
 	:global(nav a.btn.active) {
 		background-color: var(--prime);
 		color: #fff;
-	}
-	nav button {
-		margin: 0;
-	}
-	nav button.history-back {
-		margin-left: auto;
 	}
 </style>

@@ -14,7 +14,7 @@
 			return storedBlogs[params.id]
 		}
 
-		const resp = await fetch(`/blog/${params.id}.json`)
+		const resp = await fetch(`blog/${params.id}.json`)
 		// simulate latency
 		await new Promise((r)=> setTimeout(r, 500))
 		const json = await resp.json()
