@@ -11,7 +11,7 @@
 		Svelte
 		<span class='router'>{props.name}</span>
 	</h1>
-	<div class='author'>
+	<div class='author flex flex-center'>
 		<span>Made with</span>
 		<span class='heart'>❤️</span>
 		<span>by</span>
