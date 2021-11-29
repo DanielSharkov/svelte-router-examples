@@ -1,4 +1,12 @@
 <script lang='ts'>
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
+	const dispatch = createEventDispatcher()
+
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
+
 	export let props
 	let reset = false
 	let isAnimDone = false
@@ -21,7 +29,7 @@
 	}
 </script>
 
-<div class='page'>
+<div class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	<button id='SvelteRouterLogoWrapper' on:click={logoClick} class:hoverable={isAnimDone}>
 		<svg id='SvelteRouterLogo' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160' class:anim={!isAnimDone} class:reset>
 			<metadata>

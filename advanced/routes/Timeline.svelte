@@ -1,6 +1,15 @@
 <script lang='ts'>
-	import DB from '../database'
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
 	import Post from '../components/Post.svelte'
+	import {cubicInOut} from 'svelte/easing'
+	import DB from '../database'
+
+	const dispatch = createEventDispatcher()
+
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
 
 	let posts = []
 	let offset = 0
@@ -29,12 +38,30 @@
 		wantToDraftPost = false
 		posts = posts
 	}
+
+	function newPostAnim(node, o?) {
+		const height = node.offsetHeight
+		return {
+			duration: 600,
+			css(t) {
+				t = cubicInOut(t)
+				return (
+					`height: ${height * t}px;` +
+					`padding: ${20 * t}px 20px;` +
+					`opacity: ${t};`
+				)
+			}
+		}
+	}
 </script>
 
-<div id='PageTimeline' class='page'>
+<div id='PageTimeline' class='page'
+in:defaultPageTransition
+out:defaultPageTransition={{delay: 450}}
+on:outroend={()=> dispatch('outroDone')}>
 	<div class='new-post'>
 		{#if wantToDraftPost}
-			<div class='new-post-form'>
+			<div class='new-post-form' transition:newPostAnim>
 				<input type='text'
 					name='post-title'
 					placeholder='Title...'
@@ -56,7 +83,8 @@
 				</div>
 			</div>
 		{:else}
-			<button on:click={()=> wantToDraftPost = true} class='start-drafting'>
+			<button on:click={()=> wantToDraftPost = true}
+			class='start-drafting' transition:newPostAnim>
 				+ Create a new post
 			</button>
 		{/if}
@@ -102,6 +130,7 @@
 		font-size: 1.25em;
 	}
 	.new-post .start-drafting {
+		display: block;
 		width: 100%;
 		padding: 20px;
 		border-radius: inherit;

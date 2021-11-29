@@ -1,6 +1,14 @@
 <script lang='ts'>
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
 	import DB from '../database'
+
+	const dispatch = createEventDispatcher()
 	export let router
+
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
 
 	function loginUser(userID: string) {
 		DB.loginUser(userID)
@@ -8,7 +16,7 @@
 	}
 </script>
 
-<div id='PageLogin' class='flex'>
+<div id='PageLogin' class='flex' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	<div class='modal'>
 		<h1 class='title'>Login</h1>
 		<p class='subtitle'>Pick a user you would like to login to:</p>

@@ -61,14 +61,14 @@ class Database implements Readable<DatabaseStore> {
 	public readonly subscribe = this.#store.subscribe
 
 	private _getLocalStorage(): DatabaseStore {
-		if (localStorage) {
+		if ('localStorage' in window) {
 			return JSON.parse(localStorage.getItem(LOC_STR_ID) || null)
 		}
 		return null
 	}
 
 	private _syncToLocalStorage(state: DatabaseStore) {
-		if (localStorage) {
+		if ('localStorage' in window) {
 			localStorage.setItem(
 				LOC_STR_ID, JSON.stringify(state),
 			)

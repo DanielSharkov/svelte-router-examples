@@ -1,8 +1,16 @@
 <script>
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
+	const dispatch = createEventDispatcher()
+
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
+
 	export let props
 </script>
 
-<div class='page'>
+<div class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	<h1>{props.nav.label}</h1>
 
 	<h3>What is Lorem Ipsum?</h3>

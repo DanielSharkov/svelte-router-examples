@@ -107,14 +107,10 @@
 			</div>
 		</header>
 	{/if}
-	<Viewport id='SvelteViewport' {router}/>
+	<Viewport {router}/>
 </main>
 
 <style>
-	:global(#SvelteViewport) {
-		width: 100%;
-	}
-
 	header {
 		z-index: 50;
 		position: sticky;

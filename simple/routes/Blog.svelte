@@ -4,6 +4,13 @@
 
 <script lang='ts'>
 	import {RouteLink} from '@danielsharkov/svelte-router'
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
+	const dispatch = createEventDispatcher()
+
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
 
 	export let params
 
@@ -24,7 +31,7 @@
 	}
 </script>
 
-<div class='page'>
+<div class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	<RouteLink to='blogs' id='BlogBack'>&lt; Back to all blog posts</RouteLink>
 	{#await fetchBlog()}
 		<p class='placeholder'>Loading blog...</p>

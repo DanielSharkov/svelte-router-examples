@@ -1,8 +1,15 @@
 <script lang='ts'>
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
+	const dispatch = createEventDispatcher()
 	export let router
+
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
 </script>
 
-<div class='page'>
+<div class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	<h1>404</h1>
 	<p>Page not found.</p>
 	<button class='back' on:click={()=> router.push('home')}>

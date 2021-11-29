@@ -28,6 +28,14 @@
 </script>
 
 <script lang='ts'>
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
+	const dispatch = createEventDispatcher()
+
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
+
 	export let router
 	const HookID = 'app.svelte_hook'
 
@@ -69,7 +77,7 @@
 	$:if (!$isUserRealDev && isHookAdded) router.push('home')
 </script>
 
-<div class='page'>
+<div class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	<div class='misc'>
 		<button on:click={toggleHook} class='add-hook-btn flex flex-center gap-05' class:hook-added={isHookAdded}>
 			<svg class='icon stroke icon-1' viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg'>

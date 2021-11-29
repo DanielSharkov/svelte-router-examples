@@ -1,9 +1,16 @@
 <script lang='ts'>
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
 	import DB from '../database'
 	export let router
+	const dispatch = createEventDispatcher()
+	
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
 </script>
 
-<div class='page'>
+<div class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	{#each $DB.users as user}
 		<button on:click={()=> router.push('profile', {userID: user.id})}
 		class:session-user={$DB.session === user.id}

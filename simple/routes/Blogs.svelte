@@ -10,6 +10,13 @@
 
 <script lang='ts'>
 	import {RouteLink} from '@danielsharkov/svelte-router'
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
+	const dispatch = createEventDispatcher()
+
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
 
 	async function fetchBlogs(): Promise<Array<BlogPreview>> {
 		if (storedBlogsPreview !== null) return storedBlogsPreview
@@ -24,7 +31,7 @@
 	}
 </script>
 
-<div class='page'>
+<div class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	<h1>Blog posts</h1>
 	<div class='blogs'>
 		{#await fetchBlogs()}

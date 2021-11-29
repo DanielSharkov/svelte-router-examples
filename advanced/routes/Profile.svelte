@@ -1,7 +1,15 @@
 <script>
-	import DB from '../database'
+	import {onMount, createEventDispatcher} from 'svelte'
+	import {defaultPageTransition} from '../utils'
 	import Post from '../components/Post.svelte'
+	import DB from '../database'
+	
 	export let params
+	const dispatch = createEventDispatcher()
+
+	onMount(()=> {
+		dispatch('hasOutro')
+	})
 
 	let profilePosts = []
 	function fetchProfilePosts() {
@@ -13,7 +21,7 @@
 	const profile = DB.userByID(params.userID)
 </script>
 
-<div id='PageProfile' class='page'>
+<div id='PageProfile' class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	<div class='profile-banner'></div>
 	<div class='profile-header flex flex-center-y gap-2'>
 		<div class='profile-image-container'>
