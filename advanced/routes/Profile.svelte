@@ -19,8 +19,8 @@
 		<div class='profile-image-container'>
 			<div class='profile-image flex flex-center'>
 				<svg class='icon stroke icon-1' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'>
-					<path d='M103 107V96c0-14-11-25-25-25H42c-14 0-25 11-25 25v11' stroke-width='2'/>
-					<circle cx='60' cy='34' r='21' stroke-width='2'/>
+					<path d='M103 107V96c0-14-11-25-25-25H42c-14 0-25 11-25 25v11' stroke-width='2' stroke-linecap='round'/>
+					<circle cx='60' cy='34' r='21' stroke-width='2' stroke-linecap='round'/>
 				</svg>
 			</div>
 		</div>
@@ -102,7 +102,6 @@
 	}
 	.profile-name {
 		font-size: 1.5em;
-		font-weight: 400;
 	}
 	.profile-details {
 		display: grid;
@@ -116,6 +115,5 @@
 	}
 	.profile-details .field .label {
 		font-size: .75em;
-		font-weight: 500;
 	}
 </style>

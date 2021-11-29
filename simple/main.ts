@@ -1,3 +1,11 @@
+import {SvelteRouter} from '@danielsharkov/svelte-router'
 import App from './App.svelte'
-const app = new App({target: document.body})
+import routerConfig from './router'
+
+const app = new App({
+	target: document.body,
+	props: {
+		router: new SvelteRouter(routerConfig),
+	},
+})
 export default app

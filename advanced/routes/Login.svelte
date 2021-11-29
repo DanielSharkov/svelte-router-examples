@@ -17,8 +17,8 @@
 			<button class='user flex flex-center-y gap-1' on:click={()=> loginUser(user.id)}>
 				<div class='image flex flex-center'>
 					<svg class='icon stroke icon-1' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'>
-						<path d='M103 107V96c0-14-11-25-25-25H42c-14 0-25 11-25 25v11' stroke-width='4'/>
-						<circle cx='60' cy='34' r='21' stroke-width='4'/>
+						<path d='M103 107V96c0-14-11-25-25-25H42c-14 0-25 11-25 25v11' stroke-width='4' stroke-linecap='round'/>
+						<circle cx='60' cy='34' r='21' stroke-width='4' stroke-linecap='round'/>
 					</svg>
 				</div>
 				<span class='name'>{user.name}</span>

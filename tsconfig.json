@@ -2,6 +2,6 @@
   "extends": "@tsconfig/svelte/tsconfig.json",
   "moduleResolution": "node",
 
-  "include": ["simple/**/*", "advanced/**/*"],
+  "include": ["simple/**/*", "advanced/**/*", "gh_pages/**/*"],
   "exclude": ["node_modules/*", "public/*"]
 }

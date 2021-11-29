@@ -75,8 +75,8 @@
 		color: var(--font-clr);
 	}
 	.blogs .placeholder {
-		font-weight: 700;
-		font-size: 2em;
+		font-weight: 100;
+		font-size: 3em;
 		color: var(--placeholder-font);
 	}
 	.blogs .error {

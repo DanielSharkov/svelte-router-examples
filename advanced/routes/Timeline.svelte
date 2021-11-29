@@ -106,7 +106,6 @@
 		padding: 20px;
 		border-radius: inherit;
 		text-align: left;
-		font-weight: 500;
 		color: var(--prime);
 		overflow: hidden;
 	}

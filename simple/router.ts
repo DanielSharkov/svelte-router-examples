@@ -1,4 +1,4 @@
-import {SvelteRouter} from '@danielsharkov/svelte-router'
+import type {RouterConfig} from '@danielsharkov/svelte-router'
 
 import ViewDev from './routes/RouterStruct.svelte'
 import ViewHome from './routes/Home.svelte'
@@ -7,8 +7,9 @@ import ViewBlogs from './routes/Blogs.svelte'
 import ViewBlog from './routes/Blog.svelte'
 import ViewNotFound from './routes/NotFound.svelte'
 
-export default new SvelteRouter({
-	window: window,
+const config: RouterConfig = {
+	window,
+	scrollingElement: window.document.scrollingElement,
 	routes: {
 		'home': {
 			path: '/',
@@ -49,4 +50,5 @@ export default new SvelteRouter({
 		},
 	},
 	fallback: {name: '404'},
-})
+}
+export default config

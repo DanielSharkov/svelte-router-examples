@@ -42,7 +42,7 @@
 		<button on:click={()=> router.push('profile', {userID: post.userID})} class='user flex flex-center-y gap-1'>
 			<div class='user-image flex flex-center'>
 				<svg class='icon stroke' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'>
-					<path d='M103 107V96c0-14-11-25-25-25H42c-14 0-25 11-25 25v11' stroke-width='6'/>
+					<path d='M103 107V96c0-14-11-25-25-25H42c-14 0-25 11-25 25v11' stroke-width='6' stroke-linecap='round'/>
 					<circle cx='60' cy='34' r='21' stroke-width='6'/>
 				</svg>
 			</div>
@@ -54,8 +54,8 @@
 		{#if !isPage}
 			<button on:click={openThisPage} class='open-page flex flex-center flex-self-right'>
 				<svg class='icon stroke icon-1' viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
-					<path d='M57.7778 25H35C29.4772 25 25 29.4772 25 35V85C25 90.5228 29.4772 95 35 95H85C90.5228 95 95 90.5228 95 85V62.2222' stroke-width='6'/>
-					<path d='M105 15L60 60M105 15L105 45M105 15L75 15' stroke-width='6'/>
+					<path d='M57.7778 25H35C29.4772 25 25 29.4772 25 35V85C25 90.5228 29.4772 95 35 95H85C90.5228 95 95 90.5228 95 85V62.2222' stroke-width='6' stroke-linecap='round'/>
+					<path d='M105 15L60 60M105 15L105 45M105 15L75 15' stroke-width='6' stroke-linecap='round'/>
 				</svg>
 			</button>
 		{/if}
@@ -74,7 +74,7 @@
 				{#if newComment !== null}
 					<button on:click={()=> newComment = null} class='discard flex flex-center'>
 						<svg class='icon stroke icon-1' viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
-							<path d='M28.2998 91.5788L91.7007 27.7007M91.7002 91.5787L28.2993 27.7007' stroke-width='6'/>
+							<path d='M28.2998 91.5788L91.7007 27.7007M91.7002 91.5787L28.2993 27.7007' stroke-width='6' stroke-linecap='round'/>
 						</svg>
 					</button>
 					<textarea
@@ -84,7 +84,7 @@
 					/>
 					<button on:click={submitComment} class='submit flex flex-center'>
 						<svg class='icon stroke icon-1' viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
-							<path d='M18.3604 68.6396L42.103 92.3822L105.504 28.5042' stroke-width='6'/>
+							<path d='M18.3604 68.6396L42.103 92.3822L105.504 28.5042' stroke-width='6' stroke-linecap='round'/>
 						</svg>
 					</button>
 				{:else}

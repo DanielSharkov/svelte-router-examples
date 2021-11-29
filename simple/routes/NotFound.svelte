@@ -12,11 +12,12 @@
 
 <style>
 	.page {
+		padding: 4em;
 		text-align: center;
 	}
 	h1 {
 		color: var(--prime);
-		font-weight: 200;
+		font-weight: 100;
 		margin: 0;
 		font-size: 5em;
 	}

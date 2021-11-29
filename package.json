@@ -1,15 +1,17 @@
 {
   "name": "@danielsharkov/svelte-router-examples",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": false,
   "scripts": {
     "example-1": "rollup -c -w --name simple_router -i simple/main.ts",
     "example-2": "rollup -c -w --name advanced_router -i advanced/main.ts",
-    "start": "sirv public --no-clear --single",
+    "gh-pages": "rollup -c gh-pages.rollup.config.js -w",
+    "build": "rollup -c gh-pages.rollup.config.js",
+    "start": "sirv public --no-clear --single --host 0.0.0.0",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@danielsharkov/svelte-router": "^2.1.3",
+    "@danielsharkov/svelte-router": "^2.4.12",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.0",
@@ -18,6 +20,7 @@
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
     "svelte": "^3.44.2",
     "svelte-check": "^2.2.10",
     "svelte-preprocess": "^4.9.8",
