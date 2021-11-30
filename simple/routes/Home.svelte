@@ -32,13 +32,11 @@
 <div class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
 	<button id='SvelteRouterLogoWrapper' on:click={logoClick} class:hoverable={isAnimDone}>
 		<svg id='SvelteRouterLogo' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160' class:anim={!isAnimDone} class:reset>
-			<metadata>
-				<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:schema='http://schema.org/'>
-					<rdf:Description rdf:about='https://github.com/DanielSharkov/svelte-router/blob/master/logo.svg'>
-						<schema:license rdf:resource='https://github.com/DanielSharkov/svelte-router/blob/master/LICENSE'/>
-					</rdf:Description>
-				</rdf:RDF>
-			</metadata>
+			<!--
+				Same notice for the "Animated Logo" follows for this masterpiece
+				as mentioned in the README of SvelteRouter (https://github.com/DanielSharkov/svelte-router/blob/master/README.md#%EF%B8%8F-additional-notices).
+				This one was modified and permitted by the team of the project (oh, what a coincidence... :D).
+			-->
 			<style>
 				#SvelteRouterLogo.anim:not(.reset) {
 					transform-origin: center;
