@@ -22,58 +22,66 @@
 </script>
 
 <div id='PageProfile' class='page' transition:defaultPageTransition on:outroend={()=> dispatch('outroDone')}>
-	<div class='profile-banner'></div>
-	<div class='profile-header flex flex-center-y gap-2'>
-		<div class='profile-image-container'>
-			<div class='profile-image flex flex-center'>
-				<svg class='icon stroke icon-1' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'>
-					<path d='M103 107V96c0-14-11-25-25-25H42c-14 0-25 11-25 25v11' stroke-width='2' stroke-linecap='round'/>
-					<circle cx='60' cy='34' r='21' stroke-width='2' stroke-linecap='round'/>
-				</svg>
+	{#if !profile}
+		<p class='not-existing'>The user you're looking for doesn't exist</p>
+	{:else}
+		<div class='profile-banner'></div>
+		<div class='profile-header flex flex-center-y gap-2'>
+			<div class='profile-image-container'>
+				<div class='profile-image flex flex-center'>
+					<svg class='icon stroke icon-1' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'>
+						<path d='M103 107V96c0-14-11-25-25-25H42c-14 0-25 11-25 25v11' stroke-width='2' stroke-linecap='round'/>
+						<circle cx='60' cy='34' r='21' stroke-width='2' stroke-linecap='round'/>
+					</svg>
+				</div>
 			</div>
+			<span class='profile-name'>{profile.name}</span>
 		</div>
-		<span class='profile-name'>{profile.name}</span>
-	</div>
 
-	<div class='profile-details'>
-		<div class='field flex flex-center-y gap-1'>
-			<span class='label'>Username:</span>
-			<span class='value'>{profile.username}</span>
+		<div class='profile-details'>
+			<div class='field flex flex-center-y gap-1'>
+				<span class='label'>Username:</span>
+				<span class='value'>{profile.username}</span>
+			</div>
+			{#if $DB.session === params.userID}
+				<div class='field flex flex-center-y gap-1'>
+					<span class='label'>Email:</span>
+					<span class='value'>{profile.email}</span>
+				</div>
+				<div class='field flex flex-center-y gap-1'>
+					<span class='label'>Phone:</span>
+					<span class='value'>{profile.phone}</span>
+				</div>
+				<div class='field flex flex-center-y gap-1'>
+					<span class='label'>Street:</span>
+					<span class='value'>{profile.address.street}</span>
+				</div>
+				<div class='field flex flex-center-y gap-1'>
+					<span class='label'>Suite:</span>
+					<span class='value'>{profile.address.suite}</span>
+				</div>
+				<div class='field flex flex-center-y gap-1'>
+					<span class='label'>City:</span>
+					<span class='value'>{profile.address.city}</span>
+				</div>
+				<div class='field flex flex-center-y gap-1'>
+					<span class='label'>Zip:</span>
+					<span class='value'>{profile.address.zip}</span>
+				</div>
+			{/if}
 		</div>
-		{#if $DB.session === params.userID}
-			<div class='field flex flex-center-y gap-1'>
-				<span class='label'>Email:</span>
-				<span class='value'>{profile.email}</span>
-			</div>
-			<div class='field flex flex-center-y gap-1'>
-				<span class='label'>Phone:</span>
-				<span class='value'>{profile.phone}</span>
-			</div>
-			<div class='field flex flex-center-y gap-1'>
-				<span class='label'>Street:</span>
-				<span class='value'>{profile.address.street}</span>
-			</div>
-			<div class='field flex flex-center-y gap-1'>
-				<span class='label'>Suite:</span>
-				<span class='value'>{profile.address.suite}</span>
-			</div>
-			<div class='field flex flex-center-y gap-1'>
-				<span class='label'>City:</span>
-				<span class='value'>{profile.address.city}</span>
-			</div>
-			<div class='field flex flex-center-y gap-1'>
-				<span class='label'>Zip:</span>
-				<span class='value'>{profile.address.zip}</span>
-			</div>
-		{/if}
-	</div>
 
-	<div class='profile-posts'>
-		{#each profilePosts as post}<Post {post}/>{/each}
-	</div>
+		<div class='profile-posts'>
+			{#each profilePosts as post}<Post {post}/>{/each}
+		</div>
+	{/if}
 </div>
 
 <style>
+	.not-existing {
+		color: var(--prime);
+		text-align: center;
+	}
 	:global(#PageProfile .post) {
 		margin-bottom: 60px;
 	}
