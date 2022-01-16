@@ -808,6 +808,8 @@
 	}
 	.tabs button {
 		position: relative;
+		bottom: -1px;
+		margin: 0;
 		padding: 1em 1.5em;
 		border: none;
 		font-size: .8em;
