@@ -351,7 +351,7 @@ class Database implements Readable<DatabaseStore> {
 				userID: $db.users[7].id,
 				id: 'emj7w7d9pbw',
 				title: `Ya'll heard of that SvelteRouter?`,
-				body: `Hey folks 😃, I heard of a SvelteRouter. What do you think about it?\nIm also interested how good it actuall is...`,
+				body: `Hey folks 😃, I heard of SvelteRouter. What do you think about it?\nIm also interested how good it actually is...`,
 			},{
 				userID: $db.users[2].id,
 				id: '6cxfft2ggfb',
@@ -856,6 +856,12 @@ class Database implements Readable<DatabaseStore> {
 			$db.comments = [{
 				onEntity: CommentEntity.Post,
 				entityID: 'emj7w7d9pbw',
+				id: '398nkdnkg0',
+				userID: $db.users[8].id,
+				body: `Finally! Now I may transition between pages gracefully, so that the child components finish their transitions before the page swap, which brakes other routers. Awesome!! 😊🙏`,
+			},{
+				onEntity: CommentEntity.Post,
+				entityID: 'emj7w7d9pbw',
 				id: '19f5qydc53',
 				userID: $db.users[1].id,
 				body: `Yeah I like it 👍`,
@@ -864,13 +870,13 @@ class Database implements Readable<DatabaseStore> {
 				entityID: 'emj7w7d9pbw',
 				id: 'o7ic6w7wi7h',
 				userID: $db.users[4].id,
-				body: `Yes, it is pretty useful. I like it. Especially the before push hook - I like this features the most of all.\nI can only recommend it to you if you're interestd. 🙂`,
+				body: `Yes, it is pretty useful. I like it. Especially the before push hook - I like this features the most of all.\nI can really recommend it to you if you're interestd. 🙂`,
 			},{
 				onEntity: CommentEntity.Comment,
 				entityID: 'o7ic6w7wi7h',
 				id: 'ijn0llp20eo',
 				userID: $db.users[3].id,
-				body: `Yeah! Thoses hook are amazing! Exactly what I needed 😁`,
+				body: `Yeah! Thoses hooks are amazing! Exactly what I needed 😁`,
 			},{
 				onEntity: CommentEntity.Comment,
 				entityID: 'ijn0llp20eo',
