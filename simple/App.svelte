@@ -33,7 +33,7 @@
 				</a>
 			{/if}
 		{/each}
-		<!-- <a href='/this/page/does-not/exist' use:link={{router}} class='btn'>
+		<!-- <a href='/this/page/does-not/exist' use:link={router} class='btn'>
 			This will immediately throw an error, because you can't link
 			to routes which aren't defined in the router config
 		</a> -->
