@@ -1,5 +1,6 @@
 <script lang='ts'>
-	import DB, {CommentEntity, Post} from '../database'
+	import type {Post} from '../database'
+	import DB, {CommentEntity} from '../database'
 	import {router} from '../App.svelte'
 	import Thread from '../components/Thread.svelte'
 	export let post: Post

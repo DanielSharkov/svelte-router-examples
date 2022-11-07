@@ -1,7 +1,19 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
-  "moduleResolution": "node",
-
-  "include": ["simple/**/*", "advanced/**/*", "gh_pages/**/*"],
-  "exclude": ["node_modules/*", "public/*"]
+	"extends": "@tsconfig/svelte/tsconfig.json",
+	"compilerOptions": {
+		"target": "esnext",
+		"useDefineForClassFields": true,
+		"module": "esnext",
+		"resolveJsonModule": true,
+		"baseUrl": ".",
+		"allowJs": true,
+		"checkJs": true,
+		"isolatedModules": true
+	},
+	"include": [
+		"simple/**/*.d.ts", "simple/**/*.ts", "simple/**/*.js", "simple/**/*.svelte",
+		"advanced/**/*.d.ts", "advanced/**/*.ts", "advanced/**/*.js", "advanced/**/*.svelte",
+		"gh_pages/**/*.d.ts", "gh_pages/**/*.ts", "gh_pages/**/*.js", "gh_pages/**/*.svelte"
+	],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }

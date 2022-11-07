@@ -1,5 +1,6 @@
 import type {RouterNavigator} from '@danielsharkov/svelte-router'
-import {Readable, writable, Writable, get as getStore, derived} from 'svelte/store'
+import type {Readable, Writable} from 'svelte/store'
+import {writable, get as get$} from 'svelte/store'
 
 export type HistoryState = {
 	url: string
@@ -42,8 +43,8 @@ export class FakeWindow implements RouterNavigator, Readable<T_FakeWindow> {
 		})
 	}
 
-	#getStore(): T_FakeWindow {
-		return getStore(this.#store)
+	#get$(): T_FakeWindow {
+		return get$(this.#store)
 	}
 
 	private _window: Element
@@ -86,7 +87,7 @@ export class FakeWindow implements RouterNavigator, Readable<T_FakeWindow> {
 	public removeEventListener: typeof this._window.removeEventListener
 
 	get location() {
-		const $ = this.#getStore()
+		const $ = this.#get$()
 		return {pathname: $.pathname, search: $.search}
 	}
 

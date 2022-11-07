@@ -459,7 +459,8 @@
 							Advanced Example
 						</button>
 					</div>
-					<a href='https://github.com/danielsharkov/svelte-router' target='_blank'
+					<a href='https://github.com/danielsharkov/svelte-router'
+					target='_blank' rel='noreferrer'
 					class='github-reference flex flex-center'
 					transition:fade={{duration: 250}}>
 						<svg class='icon fill icon-075' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'>
@@ -559,7 +560,7 @@
 
 								<hr>
 
-								<button on:click={toggleSnow}>
+								<button on:click={()=> toggleSnow()}>
 									{#if !isSnowing}
 										🎄 Let it snow, let it snow, let it snow.
 									{:else}
@@ -600,13 +601,15 @@
 			<div class='repos'>
 				<div class='flex flex-center-y gap-05'>
 					<span>⭐</span>
-					<a href='https://github.com/DanielSharkov/svelte-router' target='_blank'>
+					<a href='https://github.com/DanielSharkov/svelte-router'
+					target='_blank' rel='noreferrer'>
 						@danielsharkov/svelte-router
 					</a>
 				</div>
 				<div class='flex flex-center-y gap-05'>
 					<span>⭐</span>
-					<a href='https://github.com/DanielSharkov/svelte-router-examples' target='_blank'>
+					<a href='https://github.com/DanielSharkov/svelte-router-examples'
+					target='_blank' rel='noreferrer'>
 						@danielsharkov/svelte-router-examples
 					</a>
 				</div>

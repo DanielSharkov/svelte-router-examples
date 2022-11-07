@@ -1,4 +1,5 @@
-import {Readable, writable, Writable, get as getStore} from 'svelte/store'
+import type {Readable, Writable} from 'svelte/store'
+import {writable, get as get$} from 'svelte/store'
 
 export type Location = {
 	street: string
@@ -38,7 +39,7 @@ export type PostComment = {
 }
 
 function genRandomID() {
-	return Math.random().toString(36).substr(2, 14)
+	return Math.random().toString(36).substring(2, 14)
 }
 
 
@@ -76,7 +77,7 @@ class Database implements Readable<DatabaseStore> {
 	}
 
 	public usersToLoginTo() {
-		return getStore(this.#store).users.map((user)=> {
+		return get$(this.#store).users.map((user)=> {
 			return {id: user.id, name: user.name}
 		})
 	}
@@ -113,7 +114,7 @@ class Database implements Readable<DatabaseStore> {
 	}
 
 	public userByID(id: string): User|null {
-		const db = getStore(this.#store)
+		const db = get$(this.#store)
 		for (const user of db.users) {
 			if (user.id === id) {
 				if (id !== db.session) return {
@@ -132,14 +133,14 @@ class Database implements Readable<DatabaseStore> {
 	}
 	
 	public postByID(id: string): Post|null {
-		for (const post of getStore(this.#store).posts) {
+		for (const post of get$(this.#store).posts) {
 			if (post.id === id) return post
 		}
 		return null
 	}
 	
 	public postsByUser(userID: string): Array<Post> {
-		return getStore(this.#store).posts.filter(
+		return get$(this.#store).posts.filter(
 			(post)=> post.userID === userID
 		)
 	}
@@ -147,7 +148,7 @@ class Database implements Readable<DatabaseStore> {
 	public commentsByPost(
 		offset: number, limit: number, postID: string,
 	): Array<PostComment> {
-		const comments = getStore(this.#store).comments.filter(
+		const comments = get$(this.#store).comments.filter(
 			(c)=> (
 				c.onEntity === CommentEntity.Post &&
 				c.entityID === postID
@@ -183,7 +184,7 @@ class Database implements Readable<DatabaseStore> {
 	public getThread(
 		offset: number, limit: number, commentID: string,
 	): Array<PostComment> {
-		const comments = getStore(this.#store).comments.filter(
+		const comments = get$(this.#store).comments.filter(
 			(c)=> (
 				c.onEntity === CommentEntity.Comment &&
 				c.entityID === commentID
@@ -197,7 +198,7 @@ class Database implements Readable<DatabaseStore> {
 	}
 
 	public hasThreadComments(commentID: string): boolean {
-		return getStore(this.#store).comments.find(
+		return get$(this.#store).comments.find(
 			(c)=> (
 				c.onEntity === CommentEntity.Comment &&
 				c.entityID === commentID
@@ -206,7 +207,7 @@ class Database implements Readable<DatabaseStore> {
 	}
 
 	public getComment(commentID: string): PostComment {
-		return getStore(this.#store).comments.find(
+		return get$(this.#store).comments.find(
 			(c)=> c.id === commentID
 		)
 	}

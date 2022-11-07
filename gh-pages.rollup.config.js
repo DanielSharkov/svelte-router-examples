@@ -6,6 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
+import child_process from 'child_process';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -18,7 +19,7 @@ function serve() {
 	return {
 		writeBundle() {
 			if (server) return;
-			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+			server = child_process.spawn('npm', ['run', 'start', '--', '--dev'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
 				shell: true
 			});
@@ -34,15 +35,15 @@ export default [{
 	output: {
 		name: 'gh_pages_simple',
 		sourcemap: !production,
-		format: 'iife',
-		file: 'public/build/bundle_simple.js'
+		format: 'esm',
+		dir: 'public/build/simple'
 	},
 	plugins: [
 		svelte({
 			preprocess: sveltePreprocess({sourceMap: !production}),
 			compilerOptions: {dev: !production}
 		}),
-		css({output: 'bundle_simple.css'}),
+		css({output: 'bundle.css'}),
 		resolve({
 			browser: true,
 			dedupe: ['svelte']
@@ -60,15 +61,15 @@ export default [{
 	output: {
 		name: 'gh_pages_advanced',
 		sourcemap: !production,
-		format: 'iife',
-		file: 'public/build/bundle_advanced.js'
+		format: 'esm',
+		dir: 'public/build/advanced'
 	},
 	plugins: [
 		svelte({
 			preprocess: sveltePreprocess({sourceMap: !production}),
 			compilerOptions: {dev: !production}
 		}),
-		css({output: 'bundle_advanced.css'}),
+		css({output: 'bundle.css'}),
 		resolve({
 			browser: true,
 			dedupe: ['svelte']
@@ -86,8 +87,8 @@ export default [{
 	output: {
 		name: 'gh_pages',
 		sourcemap: !production,
-		format: 'iife',
-		file: 'public/build/bundle.js'
+		format: 'esm',
+		dir: 'public/build'
 	},
 	plugins: [
 		svelte({

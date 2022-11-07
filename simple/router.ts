@@ -1,11 +1,9 @@
 import type {RouterConfig} from '@danielsharkov/svelte-router'
 
-import ViewDev from './routes/RouterStruct.svelte'
-import ViewHome from './routes/Home.svelte'
-import ViewAbout from './routes/About.svelte'
-import ViewBlogs from './routes/Blogs.svelte'
-import ViewBlog from './routes/Blog.svelte'
 import ViewNotFound from './routes/NotFound.svelte'
+import LazyError from './routes/LazyError.svelte'
+import LoadingRoute from '../gh_pages/LoadingRoute.svelte'
+import LoadingRouteFailFallback from '../gh_pages/LoadingRouteFailFallback.svelte'
 
 const config: RouterConfig = {
 	window,
@@ -13,7 +11,11 @@ const config: RouterConfig = {
 	routes: {
 		'home': {
 			path: '/',
-			component: ViewHome,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/Home.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 			props: {
 				name: 'Router',
 				nav: {label: 'Home'},
@@ -21,27 +23,71 @@ const config: RouterConfig = {
 		},
 		'about': {
 			path: '/about',
-			component: ViewAbout,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/About.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 			props: {
 				nav: {label: 'About'},
 			},
 		},
 		'blogs': {
 			path: '/blogs',
-			component: ViewBlogs,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/Blogs.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 			props: {
 				nav: {label: 'Blogs'}
 			},
 		},
 		'blog': {
 			path: '/blogs/:id',
-			component: ViewBlog,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/Blog.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 		},
 		'router-struct': {
 			path: '/_dev',
-			component: ViewDev,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/RouterStruct.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 			props: {
 				nav: {label: '_dev'},
+			},
+		},
+		'lazy-load': {
+			path: '/lazy',
+			lazyComponent: {
+				component: async ()=> {
+					await new Promise((r)=> setTimeout(r, 3e3))
+					return (await import('./routes/Lazy.svelte')).default
+				},
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
+			props: {
+				nav: {label: 'Lazy'},
+			},
+		},
+		'lazy-load-err': {
+			path: '/lazy-err',
+			lazyComponent: {
+				component: async ()=> {
+					await new Promise((r)=> setTimeout(r, 2e3))
+					return Promise.reject()
+				},
+				loading: LoadingRoute,
+				fallback: LazyError,
+			},
+			props: {
+				nav: {label: 'Lazy error'},
 			},
 		},
 		'404': {

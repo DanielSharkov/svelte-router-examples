@@ -1,14 +1,10 @@
 import type {RouterBeforePush, RouterConfig} from '@danielsharkov/svelte-router'
 import {get as getStore} from 'svelte/store'
-import DB from './database'
 
-import ViewLogin from './routes/Login.svelte'
-import ViewTimeline from './routes/Timeline.svelte'
-import ViewUsers from './routes/Users.svelte'
-import ViewProfile from './routes/Profile.svelte'
-import ViewPost from './routes/Post.svelte'
-import ViewThread from './routes/Thread.svelte'
 import ViewNotFound from './routes/NotFound.svelte'
+import LoadingRouteFailFallback from '../gh_pages/LoadingRouteFailFallback.svelte'
+import LoadingRoute from '../gh_pages/LoadingRoute.svelte'
+import DB from './database'
 
 const beforePush: RouterBeforePush =({pendingRoute, resolve, reject})=> {
 	if (getStore(DB).session === '') {
@@ -26,33 +22,57 @@ const config: RouterConfig = {
 	routes: {
 		'login': {
 			path: '/login',
-			component: ViewLogin,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/Login.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 		},
 		'timeline': {
 			path: '/',
-			component: ViewTimeline,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/Timeline.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 			props: {
 				nav: 'Timeline',
 			},
 		},
 		'users': {
 			path: '/users',
-			component: ViewUsers,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/Users.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 			props: {
 				nav: 'Users',
 			},
 		},
 		'profile': {
 			path: '/users/:userID',
-			component: ViewProfile,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/Profile.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 		},
 		'post': {
 			path: '/post/:postID',
-			component: ViewPost,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/Post.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 		},
 		'thread': {
 			path: '/thread/:threadID',
-			component: ViewThread,
+			lazyComponent: {
+				component: async ()=> (await import('./routes/Thread.svelte')).default,
+				loading: LoadingRoute,
+				fallback: LoadingRouteFailFallback,
+			},
 		},
 		'404': {
 			path: '/404',

@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
+import child_process from 'child_process';
 
 function serve() {
 	let server;
@@ -15,7 +16,7 @@ function serve() {
 	return {
 		writeBundle() {
 			if (server) return;
-			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+			server = child_process.spawn('npm', ['run', 'start', '--', '--dev'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
 				shell: true
 			});
@@ -29,8 +30,8 @@ function serve() {
 export default {
 	output: {
 		sourcemap: true,
-		format: 'iife',
-		file: 'public/build/bundle.js'
+		format: 'esm',
+		dir: 'public/build'
 	},
 	plugins: [
 		svelte({

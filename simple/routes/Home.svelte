@@ -102,17 +102,20 @@
 		<span>Made with</span>
 		<span class='heart-beat'>❤️</span>
 		<span>by</span>
-		<a href='https://github.com/DanielSharkov' target='_blank' class='btn user flex flex-center'>
+		<a href='https://github.com/DanielSharkov' target='_blank' rel='noreferrer' class='btn user flex flex-center'>
 			<img src='https://avatars.githubusercontent.com/u/26609752?v=4' alt='Daniel Sharkov'/>
 			<span>Daniel Sharkov</span>
 		</a>
 		<span>and</span>
-		<a href='https://github.com/romshark' target='_blank' class='btn user flex flex-center'>
+		<a href='https://github.com/romshark' target='_blank' rel='noreferrer' class='btn user flex flex-center'>
 			<img src='https://avatars.githubusercontent.com/u/9574743?v=4' alt='Roman Sharkov'/>
 			<span>Roman Sharkov</span>
 		</a>
 	</div>
-	<p>Visit the <a href='https://github.com/danielsharkov/svelte-router' target='_blank'>Svelte Router GitHub Repo</a> to learn how to create Svelte apps with this Router.</p>
+	<p>
+		Visit the <a href='https://github.com/danielsharkov/svelte-router' target='_blank' rel='noreferrer'>
+		Svelte Router GitHub Repo</a> to learn how to create Svelte apps with this Router.
+	</p>
 </div>
 
 <style>

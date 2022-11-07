@@ -1,6 +1,6 @@
 # Examples for [DanielSharkov/svelte-router](https://github.com/DanielSharkov/svelte-router)
 
-[![Last updated to v3.0.0](https://img.shields.io/badge/Up%20to%20date%20with-v3.0.0-success)](https://github.com/DanielSharkov/svelte-router) [![Live Demo](https://img.shields.io/badge/▶-Live%20Demo-2962ff)](https://danielsharkov.github.io/svelte-router-examples)
+[![Last updated to v3.1.4](https://img.shields.io/badge/Up%20to%20date%20with-v3.1.4-success)](https://github.com/DanielSharkov/svelte-router) [![Live Demo](https://img.shields.io/badge/▶-Live%20Demo-2962ff)](https://danielsharkov.github.io/svelte-router-examples)
 
 ## Get started
 
