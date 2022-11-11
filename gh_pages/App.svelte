@@ -28,6 +28,8 @@
 		'blogs': 'Blogs',
 		'blog': 'Blog',
 		'router-struct': '_dev',
+		'lazy-load': 'Lazy loading',
+		'lazy-load-err': 'Lazy loading error',
 
 		// Advanced example:
 		'login': 'Login',
