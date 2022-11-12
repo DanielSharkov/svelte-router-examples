@@ -4,6 +4,8 @@
 
 ## Get started
 
+*(I recommend using `pnpm`, but you may use your desired package manager, or simply `npm` like in this example)*
+
 Install the dependencies by `npm i`,
 then start either the first simple exmaple by `npm run example-1`,
 the second more advanced example by `npm run example-2` or even
